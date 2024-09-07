@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Como Rodar o Projeto de API Ruby on Rails
+Olá!
 
-Things you may want to cover:
+Para rodar o projeto da API Ruby on Rails no seu computador, siga as etapas abaixo:
 
-* Ruby version
+Clone o Repositório Primeiro, você precisa clonar o repositório do projeto para o seu computador. Abra o terminal e execute o seguinte comando:
 
-* System dependencies
+git clone https://github.com/guilhermesouza23/ecommerce-api.git
 
-* Configuration
+Depois, acesse o diretório do projeto : cd ecommerce-api
 
-* Database creation
+Instale as Dependências O projeto utiliza algumas bibliotecas Ruby que precisam ser instaladas. Certifique-se de ter o Ruby e o Bundler instalados. Caso não tenha o Bundler, você pode instalá-lo com o comando: gem install bundler
 
-* Database initialization
+Com o Bundler instalado, execute o comando a seguir para instalar as dependências do projeto: bundle install
 
-* How to run the test suite
+Configure o Banco de Dados O próximo passo é configurar o banco de dados. No terminal, execute os seguintes comandos para criar e migrar o banco de dados:
+rails db:create
+rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+Inicie o Servidor Com tudo configurado, você está pronto para iniciar o servidor Rails. Execute o comando:
+rails server
 
-* Deployment instructions
+O servidor será iniciado e estará disponível no endereço http://localhost:3000.
 
-* ...
+Teste a API Para verificar se a API está funcionando corretamente, você pode utilizar ferramentas como Postman ou curl para fazer requisições aos endpoints da API.
+
+Se você encontrar algum problema ou tiver dúvidas durante o processo, sinta-se à vontade para me contatar para obter ajuda.
+

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  # Outras rotas...
-
-  # Rotas para Usuários
   resources :usuarios, only: [:index, :create]
-  # Rotas para produtos
   resources :produtos, only: [:index, :create]
+
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end

@@ -1,21 +1,18 @@
 class SessionsController < ApplicationController
-    # Desativa a verificação CSRF apenas para ações do controlador de sessão
-    skip_before_action :verify_authenticity_token, only: [:create, :destroy]
-  
-    # POST /login
-    def create
-      user = Usuario.find_by(email: params[:email])
-      if user && user.senha == params[:senha]
-        render json: { message: 'Login bem-sucedido', user: user }, status: :ok
-      else
-        render json: { message: 'Credenciais inválidas' }, status: :unauthorized
-      end
-    end
-  
-    # DELETE /logout
-    def destroy
-      # Aqui você pode encerrar a sessão ou invalidar o token, se aplicável
-      render json: { message: 'Logout bem-sucedido' }, status: :ok
+  # Desabilitar verificação de CSRF para endpoints de API
+  skip_before_action :verify_authenticity_token
+  def create
+    # Encontra o usuário pelo email
+    usuario = Usuario.find_by(email: params[:email])
+    
+    # Verifica se o usuário existe e a senha está correta
+    if usuario && usuario.senha == params[:senha]
+      # Você pode querer usar algo como JWT para gerar um token de sessão
+      # Para este exemplo, estamos apenas retornando uma mensagem de sucesso
+      render json: { message: 'Login realizado com sucesso!' }, status: :ok
+    else
+      render json: { error: 'Email ou senha inválidos' }, status: :unauthorized
     end
   end
-  
+
+end
